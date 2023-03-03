@@ -1,0 +1,89 @@
+Chuyển dữ liệu ZaloPC sang ổ D, E.. để ổ C không bị đầy
+
+Mô tả
+
+Zalo phần mềm trở nên khá thông dụng và phổ biến nó trở nên không thể thiếu trong cho cá nhân và làm việc tuy nhiên vấn đề nan giải Zalo được cài mặt định ổ C. Nếu bạn thường xuyên nhắn tin/chát chít với bạn bè hay khách hàng thì bạn sẽ thấy dung lượng của ổ C ngày càng bị thu hẹp.
+
+Nguyên Nhân
+
+Nguyên nhân là do dữ liệu đồng bộ của Zalo gây ra, đặc biệt là nếu bạn thường xuyên gửi các file dữ liệu nặng như video, hình ảnh hay âm thanh..
+
+Việc Zalo chiếm nhiều dung lượng ổ C, làm ổ C đầy sẽ ảnh hưởng rất nhiều đến hiệu suất hoạt động của máy tính.
+
+Giải quyết
+
+Admin chia sẽ các bạn 1 số phương án gọi là chữa cháy tuy nhiên cũng 1 khía cạnh chấp nhận nào đó:
+
+Chia lại ổ cứng máy tính dành nhiều dung lượng C: hơn để lưu trữ
+
+Chuyển sang phiên bản web zalo, chat.zalo.me tuy nhiên 1 số hình ảnh không xem được trên phiên bản web.
+
+Thủ thuật di chuyển dữ liệu ZaloPC mặc đinh ổ ‘C’ sang phân vùng khác. Đây có vẻ là phương án tối ưu đây
+
+Cách thực hiện Phương án  di dời thư mục mặc định
+
+Tạo Các folder 
+
+Ở hướng dẫn này tôi move qua D:. Tại đây tôi tạo các thư mục sau
+
+D:\Zalo\
+
+ZaloPC: Lưu
+
+ZaloApp: Ứng dụng zalo để chạy
+
+ZaloReceivedFIles: download file từ Zalo
+
+Bước 1: Thoát các ứng dụng ZaloPC
+
+Thoát ứng dụng Zalo PC bằng cách bấm chuột phải vào biểu tượng Zalo PC trên system tray chọn Đóng, chờ 5-10s để biểu tượng Zalo PC thoát khỏi system tray.
+
+Bước 2: Copy Dữ liệu ZaloPC
+
+Tạm thời copy thư mục “C:\Users\<Username>\AppData\Local\ZaloPC” qua “D:\Zalo\ZaloPC” và đổi tên thư mục cũ ZaloPC-Old. Sau đó chờ ổ định xoá sau.
+
+Lưu ý Username: là tài khoản của các bạn nhé
+
+Bước 3: Tải phần mềm Symlink Link Creator này về và chạy ứng dụng này lên:
+
+Bạn chọn là Folder symbolic link.
+
+Link Folder bạn chọn đường dẫn chứa thư mục ZaloPC cũ (trên ổ C). Bạn có thể copy đường link vào cho nhanh.
+
+Now give a name to the link: Bạn nhập vào là ZaloPC
+
+Trong phần Destination Folder bạn nhập đường dẫn đến thư mục ZaloPC mà bạn đã copy đến.
+
+Phần Select the Type of link bạn nhập là: Symbolic Link
+
+=> Sau khi thiết lập xong bạn bấm Create Link để tạo ánh xạ ổ là xong.
+
+Nếu bạn không thích sử dụng phần mềm Symlink Link Creator thì bạn có thể chạy lệnh sau trong CMD.
+
+Cách làm như sau: Bạn chạy CMD với quyền Admin => rồi chạy lệnh bên dưới.
+
+mklink /d C:\Users\xxx\AppData\Local\ZaloPC Đường-dẫn-đến-thư-mục-mới-copy
+
+Link hoàn chỉnh của mình là:
+
+mklink /d "C:\Users\Phuong.NguyenVan\AppData\Local\ZaloPC"  D:\Zalo\ZaloPC
+
+Bước 4: Tiếp tục move luôn ZaloApp qua luôn
+
+Cut (move) thư mục “C:\Users\Phuong.NguyenVan\AppData\Roaming\ZaloApp” qua “D:\ZALO\”
+
+Bước 5: Tạo link ZaloApp tương tự có thể dùng symlink hoặc bằng lệnh
+
+mklink /d “C:\Users\Phuong.NguyenVan\AppData\Roaming\ZaloApp” “D:\ZALO\ZaloApp”
+
+Bước 6: Nếu có chương trình Zalo tại Program
+
+C:\Users\Phuong.NguyenVan\AppData\Local\Programs\Zalo thì cắt luôn D:\Zalo\Zalo
+
+Chạy Chương trình Zalo từ D:\Zalo\Zalo
+
+Bước 7: Move các file download D:\Zalo\ZaloReceivefiles
+
+Các bạn có thể đặt tên gì tuỳ ý các bạn dễ nhớ nhé.
+
+Phương Nguyễn Viết
